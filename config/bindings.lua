@@ -193,7 +193,7 @@ local keys = {
    -- resizes fonts
    {
       key = 'f',
-      mods = 'LEADER',
+      mods = mod.SUPER_REV,
       action = act.ActivateKeyTable({
          name = 'resize_font',
          one_shot = false,
@@ -203,7 +203,7 @@ local keys = {
    -- resize panes
    {
       key = 'p',
-      mods = 'LEADER',
+      mods = mod.SUPER_REV,
       action = act.ActivateKeyTable({
          name = 'resize_pane',
          one_shot = false,
@@ -237,6 +237,27 @@ local mouse_bindings = {
       event = { Up = { streak = 1, button = 'Left' } },
       mods = 'CTRL',
       action = act.OpenLinkAtMouseCursor,
+   },
+   {
+      event = { Down = { streak = 1, button = { WheelUp = 1 } } },
+      mods = 'CTRL',
+      action = act.IncreaseFontSize,
+   },
+   -- Scrolling down while holding CTRL decreases the font size
+   {
+      event = { Down = { streak = 1, button = { WheelDown = 1 } } },
+      mods = 'CTRL',
+      action = act.DecreaseFontSize,
+   },
+   {
+      event = { Down = { streak = 1, button = { WheelUp = 1 } } },
+      mods = 'NONE',
+      action = act.ScrollByLine(-3),
+   },
+   {
+      event = { Down = { streak = 1, button = { WheelDown = 1 } } },
+      mods = 'NONE',
+      action = act.ScrollByLine(3),
    },
 }
 
